@@ -78,5 +78,5 @@ Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11
 
 1. Lockout values (5 tries, 15 min) are proposals.
 2. Role codes are proposals. The backend confirms the `/admin/me` shape.
-3. Staff screens exist in English, AZ, RU (light) and English Dark. A native speaker should review AZ and RU.
+3. Staff screens exist in English, AZ and RU, each in light and dark. A native speaker should review AZ and RU.
 4. Driver earnings (ST13) and Daily summary (ST26) need backend endpoints.
