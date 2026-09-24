@@ -27,19 +27,25 @@ Page "Admin & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 1
 - ST12 Active job, arrived: job card + Navigate (Apple Maps) · Call · Message · Cancel job + one big status button "Start ride". ST12b in progress: "End ride".
 - One job flow for EV with driver (EV01d), Deliver to me (EV01e), Golf with driver (G01d) and transfers (HO06–HO08). Each driver sees only the job types of their role.
 
+- Edge cases: ST10c shift ending (no new jobs after 17:45) · ST10d no internet (jobs paused, active job saved) · ST12c rider not here (5-minute wait, then Mark as no-show) · ST12d rider cancelled (back to jobs, rating not affected).
+
 ## 10 · Sea Breeze team
 - ST20 Home: New requests · On trip · Free carts · Trips today · Messages · Close the day.
 - ST21 Request (takes over the screen, one at a time): request card + Suggested cart, driver and arrival time (5 / 10 / 15 / 20 min, 10 pre-selected) + Decline / Accept. "Change" edits the suggestion.
 - ST23 On trip: up to 6 cart tiles. ST23a one cart: Extend 1 hour · Change cart · Message · Report damage + big "End trip".
+- ST23b Extend: +1 h / +2 h / +3 h / Other, then "Extend to 12:40"; the guest gets a notice. ST23c Change cart: pick a free cart, then "Swap"; the old cart goes Off for a check.
 - ST24 Carts: 14 small cart tiles with status; tap turns a free cart off or on.
 - ST26 Close the day: 4 totals + big "Close the day".
 
 ## 11 · Admin (simple, in the app)
 - ST30 Home: Approvals · Messages · Cars · Users · Today · Alerts.
 - ST31 Approvals, one at a time: new car listings, documents (MyGov + photos), transfer car checks (HO07a), parking appeals. Decline (asks for a reason) / Approve.
+- ST31a Decline reason (Photos unclear · Papers missing · Wrong car details · Other + note) · ST31b Photos (big photo, thumbnails, Decline / Approve) · ST31c Documents (MyGov match + 5 photos, Reject / Verify).
 - ST32 Messages: last 4 customer chats → the same chat screen as C03.
 - ST33 Cars: search + EV / Golf / Hosts chips + on/off toggle per car.
+- ST33a Turn off car: reason (Damage · Cleaning · Service · Other) then "Turn off EV 6".
 - ST34 Users: search → one user card + Call · Message · Papers · Block.
+- ST34a Block user: reason (Unpaid debt · Damage · Fraud · Other) then "Block"; the user gets the reason and a support contact.
 - ST35 Alerts: damage, debt, low battery, one button each.
 - ST36 Today: totals per module, read-only.
 - The full admin panel (statistics, settings, investor view) is not in the app.
