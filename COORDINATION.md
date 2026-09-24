@@ -77,3 +77,6 @@ To settle:
   - P10, P11, P11a removed.
 - Data sources (Emin): EV is fully real-time. Golf shows what Sea Breeze staff set in the admin panel (no live GPS). Renter and Transfer have no live data; details are agreed in chat.
 - Continued Session B's paused queue (it ran out of credits): 2 vision pass, done (G01d2 wording, G02b tray); 4 prototype run, done (flow starts, new links, Profile backdrops); 3 company account screens, waiting for scope.
+- Company account screens (Emin chose "with team"): A03c company details, W02b company payment method, W03b invoices, P12 Team sheet. Production and Dark.
+- Top spacing under the Dynamic Island (Emin): tab-root titles start at y 100; nav bars, back buttons and camera headers moved from y 59 to y 67; content under them moved 8 pt down. Rule recorded in 00 Guidelines.
+- Session B's paused queue is finished. Session A is not editing the file now.
