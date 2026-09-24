@@ -62,8 +62,8 @@ To settle:
 1. Host / Car row: the 04 caption calls it unused, but the handoff notes use its states for HO01. Promote it to a component or delete it.
 2. Production screens use their own layers, not instances of the 04 components. Swapping them is a separate job.
 3. R01a Dates: the calendar highlights 28–30, the fields and R04 say 28–29 (1 day). Emin chose to fix the calendar. Session A added a hidden "Selected (show on range start / end)" layer to every day cell of the Date range calendar main component. New layers do not reach existing instances through the API, so finish it in the Figma app: in R01a show "Selected" on Day 29 (text on-gold, right corners 20) and clear Day 30 (no fill, circle fill none, text ink, Callout).
-4. TR01c Route sheet shows the Gobustan tour over the open Baku → Airport card.
-5. W03 History: the EV ride row uses car.side.fill instead of bolt.car.fill; the icon sits inside a list instance.
+4. Done: TR01c Route sheet now shows the Baku → Airport ride (Production and Dark).
+5. Done: W03 EV ride row uses bolt.car.fill (Production and Dark).
 
 ## Decisions
 
