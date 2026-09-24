@@ -83,3 +83,4 @@ To settle:
 - EV plan is now minute packages: EV08 Monthly, EV08b Weekly, EV08c Yearly, 5 packages each (Production and Dark). Prices are placeholders on the ₼0.25/min base, waiting for Emin.
 - Vision pass after the spacing change: HO05, R01g and TR01c backdrops aligned; A06c/A06d hold timer corrected; EV08a label wrap fixed.
 - Open: the EV01/EV01d/EV01e tariff control is at 50 % layer opacity (not set by Session A).
+- EV tariff row (min / hour / day / Driver) set to full strength on all EV screens, Production and Dark (Emin: easier to read). Handoff row added.
