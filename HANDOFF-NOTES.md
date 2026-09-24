@@ -65,7 +65,7 @@ Write actions follow the old panel's rule: an "Actions" switch that is off by de
 
 ## Changes to existing screens
 
-- The Host flow (HO01–HO08) moved from Production flow to the "Host & Staff" page. It was removed from the AZ and RU pages. The Hosting tile stays in P01, but the prototype link from P01 no longer crosses pages.
+- The normal Host flow (HO01–HO08) is on Production flow, AZ and RU again. The "Host & Staff" page holds only the staff and driver versions.
 - G01d2: the Sea Breeze team accepts golf requests in the app (ST21a) and picks cart, driver and arrival time.
 
 ## Open questions
