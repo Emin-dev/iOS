@@ -6,6 +6,10 @@ Updated 24 Sep 2026. Emin's decision: staff, drivers and admins all work inside 
 Page "Admin & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11 (Admin). The normal Host flow is on Production flow: Flow A Add a car (HO02–HO02d) and Flow B Post a transfer (HO07a–HO07d).
 
 ## Rules for every staff screen
+- Staff and admin screens have no bottom tab bar. The back button (top left) leaves staff mode for Profile.
+- New jobs and golf requests arrive as push notifications with Accept / Decline / Open actions (ST11p, ST21p). An active job shows a Live Activity on the Lock Screen and in the Dynamic Island with the next status button (ST12L).
+- Messages tiles open Chats (C01) filtered to the staff member.
+- Red is kept only for danger states (Off, Cancel job, damage). Actions use orange tones.
 - Drivers and the Sea Breeze team are salaried Rentbutik or Sea Breeze staff: their screens show no money (no fares, earnings, revenue, discounts or deposits). Only admins see money (ST36 Today).
 - One home screen per role, 6 tiles (2 × 3), no scrolling. Info tiles show a number; action tiles do one thing.
 - Anything that needs a decision takes over the screen: a big card on top, then Decline (red) and Accept (green) tiles. The next item opens right after.
@@ -19,7 +23,7 @@ Page "Admin & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 1
 
 ## 09 · Driver
 - ST10 Home (online): Online toggle · Jobs today · Rating · Online today · Messages · Support. ST10b same, offline.
-- ST11 New job (takes over the screen): job card (type, route, guests, 0:45 countdown) + Decline / Accept.
+- ST11 New job (takes over the screen): job card (type, route, guests, 0:45 countdown, small map with the pickup pin) + Decline / Accept.
 - ST12 Active job, arrived: job card + Navigate (Apple Maps) · Call · Message · Cancel job + one big status button "Start ride". ST12b in progress: "End ride".
 - One job flow for EV with driver (EV01d), Deliver to me (EV01e), Golf with driver (G01d) and transfers (HO06–HO08). Each driver sees only the job types of their role.
 
