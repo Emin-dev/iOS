@@ -12,9 +12,9 @@ Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11
 
 ## How staff get in
 1. Profile › Hosting (HO01). A hard pull-down at the top shows a hidden "Admin" row (ST00), like the Telegram archive row.
-2. Admin row → ST01, 8-digit code keypad. Checked by the backend on the 8th digit.
-3. Wrong code → ST01b ("N tries left"). After 5 wrong codes → ST01c, locked 15 min (proposed values).
-4. The code decides the home: `admin` → ST30, `seabreeze_team` → ST20, `driver_ev` / `driver_golf` / `transfer_host` → ST10. The person button opens ST09 (role, code ending, language, Leave staff mode).
+2. Admin row → ST01, the same sign-in as A07: phone number, Send code, 6-digit code by SMS, or "Get the code on WhatsApp instead". No password, no separate staff code.
+3. Only phone numbers linked to a staff account get a code. Wrong or expired code → ST01b (Resend). A number that is not a staff account → ST01c.
+4. The backend returns the role and the home: `admin` → ST30, `seabreeze_team` → ST20, `driver_ev` / `driver_golf` / `transfer_host` → ST10. The person button opens ST09 (name, role, phone, language, Leave staff mode).
 
 ## 09 · Driver
 - ST10 Home (online): Online toggle · Today ₼ · Rating · This week ₼ · Messages · Support. ST10b same, offline.
@@ -76,7 +76,7 @@ Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11
 
 ## Open questions
 
-1. Lockout values (5 tries, 15 min) are proposals.
+1. How many wrong codes before the phone is locked out, and for how long: same rule as the customer sign-in (A07).
 2. Role codes are proposals. The backend confirms the `/admin/me` shape.
 3. Staff screens exist in English, AZ and RU, each in light and dark. A native speaker should review AZ and RU.
 4. Driver earnings (ST13) and Daily summary (ST26) need backend endpoints.
