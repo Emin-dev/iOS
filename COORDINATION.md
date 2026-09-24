@@ -85,3 +85,4 @@ To settle:
 - Open: the EV01/EV01d/EV01e tariff control is at 50 % layer opacity (not set by Session A).
 - EV tariff row (min / hour / day / Driver) set to full strength on all EV screens, Production and Dark (Emin: easier to read). Handoff row added.
 - R01a Dates now shows 28–29 (Production and Dark). EV plan prices stay placeholders; handoff says load them from the backend.
+- Consistency check: Production and Dark have the same 113 screens with identical texts. Design system: two sections resized to fit their text, sections re-spaced, 06 SwiftUI guide screen map updated for EV08–EV08c, L01 and company screens.
