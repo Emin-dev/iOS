@@ -68,3 +68,12 @@ To settle:
 ## Decisions
 
 - 24 Sep 2026 · Dark mode background: keep Apple system black. Screen #000000, cards and sheets #1C1C1E, rows and controls inside sheets #2C2C2E. Soft neutral black (#0E0E10) and warm brand black (#110F0D) were compared and rejected. Recorded in 00 Guidelines on the Design system page.
+
+## 24 Sep 2026 · later (Session A)
+
+- EV plan and Places moved out of Profile (P01 back to 8 tiles), Production and Dark.
+  - EV plan: link "EV plan · −30 %" on the EV01 card → sheets EV08 (offer) and EV08a (active).
+  - Places: one shared half-screen sheet L01, opened from every location row (EV01e Deliver to, EV01d and G01d Where to, TR02 pickup). One saved list for all modules.
+  - P10, P11, P11a removed.
+- Data sources (Emin): EV is fully real-time. Golf shows what Sea Breeze staff set in the admin panel (no live GPS). Renter and Transfer have no live data; details are agreed in chat.
+- Continued Session B's paused queue (it ran out of credits): 2 vision pass, done (G01d2 wording, G02b tray); 4 prototype run, done (flow starts, new links, Profile backdrops); 3 company account screens, waiting for scope.
