@@ -3,9 +3,10 @@
 Figma: https://www.figma.com/design/Ereat5qYENeSKTvW473gn5/Design-flow
 Updated 24 Sep 2026. Emin's decision: staff, drivers and admins all work inside the main app (Emin-dev/iOS), in the Host module, behind the hidden Admin row and an 8-digit code. Every role gets one simple screen: 6 bento tiles, no scrolling. The earlier detailed staff screens and the "Admin panel (newiosadmin)" drafts were removed.
 
-Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11 (Admin). The normal Host flow is on Production flow: Flow A Add a car (HO02–HO02d) and Flow B Post a transfer (HO07a–HO07d).
+Page "Admin & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11 (Admin). The normal Host flow is on Production flow: Flow A Add a car (HO02–HO02d) and Flow B Post a transfer (HO07a–HO07d).
 
 ## Rules for every staff screen
+- Drivers and the Sea Breeze team are salaried Rentbutik or Sea Breeze staff: their screens show no money (no fares, earnings, revenue, discounts or deposits). Only admins see money (ST36 Today).
 - One home screen per role, 6 tiles (2 × 3), no scrolling. Info tiles show a number; action tiles do one thing.
 - Anything that needs a decision takes over the screen: a big card on top, then Decline (red) and Accept (green) tiles. The next item opens right after.
 - Lists are short (at most 4–6 items) and fit on the screen.
@@ -17,16 +18,15 @@ Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11
 4. The backend returns the role and the home: `admin` → ST30, `seabreeze_team` → ST20, `driver_ev` / `driver_golf` / `transfer_host` → ST10. The person button opens ST09 (name, role, phone, language, Leave staff mode).
 
 ## 09 · Driver
-- ST10 Home (online): Online toggle · Today ₼ · Rating · This week ₼ · Messages · Support. ST10b same, offline.
-- ST11 New job (takes over the screen): job card (type, route, guests, fare, 0:45 countdown) + Decline / Accept.
+- ST10 Home (online): Online toggle · Jobs today · Rating · Online today · Messages · Support. ST10b same, offline.
+- ST11 New job (takes over the screen): job card (type, route, guests, 0:45 countdown) + Decline / Accept.
 - ST12 Active job, arrived: job card + Navigate (Apple Maps) · Call · Message · Cancel job + one big status button "Start ride". ST12b in progress: "End ride".
-- ST13 Earnings: 6 info tiles.
 - One job flow for EV with driver (EV01d), Deliver to me (EV01e), Golf with driver (G01d) and transfers (HO06–HO08). Each driver sees only the job types of their role.
 
 ## 10 · Sea Breeze team
-- ST20 Home: New requests · On trip · Free carts · Today ₼ · Messages · Close the day.
+- ST20 Home: New requests · On trip · Free carts · Trips today · Messages · Close the day.
 - ST21 Request (takes over the screen, one at a time): request card + Suggested cart, driver and arrival time (5 / 10 / 15 / 20 min, 10 pre-selected) + Decline / Accept. "Change" edits the suggestion.
-- ST23 On trip: up to 6 cart tiles. ST23a one cart: Extend 1 hour · Discount · Message · Report damage + big "End trip".
+- ST23 On trip: up to 6 cart tiles. ST23a one cart: Extend 1 hour · Change cart · Message · Report damage + big "End trip".
 - ST24 Carts: 14 small cart tiles with status; tap turns a free cart off or on.
 - ST26 Close the day: 4 totals + big "Close the day".
 
@@ -71,7 +71,7 @@ Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11
 
 ## Changes to existing screens
 
-- The normal Host flow (HO01–HO08) is on Production flow, AZ and RU again. The "Host & Staff" page holds only the staff and driver versions.
+- The normal Host flow (HO01–HO08) is on Production flow, AZ and RU again. The "Admin & Staff" page holds only the staff and driver versions.
 - G01d2: the Sea Breeze team accepts golf requests in the app (ST21a) and picks cart, driver and arrival time.
 
 ## Open questions
@@ -79,4 +79,4 @@ Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11
 1. How many wrong codes before the phone is locked out, and for how long: same rule as the customer sign-in (A07).
 2. Role codes are proposals. The backend confirms the `/admin/me` shape.
 3. Staff screens exist in English, AZ and RU, each in light and dark. A native speaker should review AZ and RU.
-4. Driver earnings (ST13) and Daily summary (ST26) need backend endpoints.
+4. Daily summary (ST26) needs a backend endpoint.
