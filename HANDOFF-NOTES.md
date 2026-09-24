@@ -1,39 +1,56 @@
-# Handoff notes · Staff, drivers and admin panel
+# Handoff notes · Staff, drivers and admin in the app
 
 Figma: https://www.figma.com/design/Ereat5qYENeSKTvW473gn5/Design-flow
-Updated 24 Sep 2026, after the final split of work from the admin panel session.
+Updated 24 Sep 2026. Emin's decision: staff, drivers and admins all work inside the main app (Emin-dev/iOS), in the Host module, behind the hidden Admin row and an 8-digit code. Every role gets one simple screen: 6 bento tiles, no scrolling. The earlier detailed staff screens and the "Admin panel (newiosadmin)" drafts were removed.
 
-- The main app (Emin-dev/iOS) is for Sea Breeze team members and drivers, in the Host module. Page "Host & Staff", sections 08–10, screens ST00–ST26.
-- The admin panel (Emin-dev/newiosadmin) is for Rentbutik admins. Draft frames are on page "Admin panel (newiosadmin)", sections 11–14, screens ST27 and ST30–ST61. They are phone size for now; the web layout is an open question.
+Page "Host & Staff": sections 08 (access), 09 (Driver), 10 (Sea Breeze team), 11 (Admin). The normal Host flow is on Production flow: Flow A Add a car (HO02–HO02d) and Flow B Post a transfer (HO07a–HO07d).
 
-The tap-by-tap list with motion and haptic for each action is in section "12 · Staff and drivers in Host" of the frame "Handoff notes · 24 Sep 2026" on the Production flow page.
+## Rules for every staff screen
+- One home screen per role, 6 tiles (2 × 3), no scrolling. Info tiles show a number; action tiles do one thing.
+- Anything that needs a decision takes over the screen: a big card on top, then Decline (red) and Accept (green) tiles. The next item opens right after.
+- Lists are short (at most 4–6 items) and fit on the screen.
 
-## Staff and drivers in the main app
+## How staff get in
+1. Profile › Hosting (HO01). A hard pull-down at the top shows a hidden "Admin" row (ST00), like the Telegram archive row.
+2. Admin row → ST01, 8-digit code keypad. Checked by the backend on the 8th digit.
+3. Wrong code → ST01b ("N tries left"). After 5 wrong codes → ST01c, locked 15 min (proposed values).
+4. The code decides the home: `admin` → ST30, `seabreeze_team` → ST20, `driver_ev` / `driver_golf` / `transfer_host` → ST10. The person button opens ST09 (role, code ending, language, Leave staff mode).
 
-### How they get in
-1. Profile › Hosting (HO01). A hard pull-down at the top shows a hidden "Admin" row (ST00), like the Telegram archive row. It stays until the user leaves Hosting.
-2. Admin row → ST01, a full-screen 8-digit code keypad. The backend checks the code on the 8th digit. There is no Continue button.
-3. Wrong code → ST01b, "Wrong code. N tries left." After 5 wrong codes → ST01c, locked for 15 min. Both numbers are proposals.
-4. On success, Hosting shows the role home: `seabreeze_team` → ST20, `driver_ev` / `driver_golf` / `transfer_host` → ST10. The person button opens ST09 Staff account (role, code ending, language, Leave staff mode).
+## 09 · Driver
+- ST10 Home (online): Online toggle · Today ₼ · Rating · This week ₼ · Messages · Support. ST10b same, offline.
+- ST11 New job (takes over the screen): job card (type, route, guests, fare, 0:45 countdown) + Decline / Accept.
+- ST12 Active job, arrived: job card + Navigate (Apple Maps) · Call · Message · Cancel job + one big status button "Start ride". ST12b in progress: "End ride".
+- ST13 Earnings: 6 info tiles.
+- One job flow for EV with driver (EV01d), Deliver to me (EV01e), Golf with driver (G01d) and transfers (HO06–HO08). Each driver sees only the job types of their role.
 
-### Screens
-- 08 · Staff access: ST00 Hosting, Admin revealed · ST01 Staff code · ST01b Wrong code · ST01c Locked · ST09 Staff account (sheet)
-- 09 · Driver: ST10 Jobs (Online on) · ST10b Offline · ST11 Job offer (sheet, 0:45 to accept) · ST12 Active job (map, rider, status steps, one button per step) · ST12a Cancel job (alert) · ST13 History and earnings. One inbox for EV with driver (EV01d), Deliver to me (EV01e), Golf with driver (G01d) and transfers (HO06–HO08). Each driver sees only the job types of their role.
-- 10 · Sea Breeze team: ST20 Golf desk · ST21 Requests · ST21a Assign cart, driver and arrival time (5 / 10 / 15 / 20 min) · ST22 Reserves · ST23 On trip · ST23a End trip (alert) · ST23b Discount (sheet) · ST24 Fleet (block and unblock carts and models) · ST25 Transactions · ST26 Daily summary
+## 10 · Sea Breeze team
+- ST20 Home: New requests · On trip · Free carts · Today ₼ · Messages · Close the day.
+- ST21 Request (takes over the screen, one at a time): request card + Suggested cart, driver and arrival time (5 / 10 / 15 / 20 min, 10 pre-selected) + Decline / Accept. "Change" edits the suggestion.
+- ST23 On trip: up to 6 cart tiles. ST23a one cart: Extend 1 hour · Discount · Message · Report damage + big "End trip".
+- ST24 Carts: 14 small cart tiles with status; tap turns a free cart off or on.
+- ST26 Close the day: 4 totals + big "Close the day".
 
-Still missing from the brief: extend a golf rental and return photos on the Sea Breeze side. The guest side has them (G03a, G02b).
+## 11 · Admin (simple, in the app)
+- ST30 Home: Approvals · Messages · Cars · Users · Today · Alerts.
+- ST31 Approvals, one at a time: new car listings, documents (MyGov + photos), transfer car checks (HO07a), parking appeals. Decline (asks for a reason) / Approve.
+- ST32 Messages: last 4 customer chats → the same chat screen as C03.
+- ST33 Cars: search + EV / Golf / Hosts chips + on/off toggle per car.
+- ST34 Users: search → one user card + Call · Message · Papers · Block.
+- ST35 Alerts: damage, debt, low battery, one button each.
+- ST36 Today: totals per module, read-only.
+- The full admin panel (statistics, settings, investor view) is not in the app.
 
 ## Roles
 
-`GET /admin/me` returns the role and permission scopes. The app shows only what the role allows, and the backend blocks everything else. These codes are proposals until the backend confirms them.
+`GET /admin/me` returns the role. The app shows only what the role allows; the backend blocks the rest. Codes are proposals until the backend confirms them.
 
-| Role code | Who | Where |
+| Role code | Who | Home |
 |---|---|---|
-| `admin` | Rentbutik admins. CEO view and Investor view with a switch | Admin panel only |
-| `seabreeze_team` | Sea Breeze golf desk | Main app, ST20 |
-| `driver_ev` | Rentbutik EV drivers | Main app, ST10 |
-| `driver_golf` | Sea Breeze golf drivers | Main app, ST10 |
-| `transfer_host` | A host whose HO07a car check is approved | Main app, ST10 and HO06–HO08 |
+| `admin` | Rentbutik admins | ST30 |
+| `seabreeze_team` | Sea Breeze golf desk | ST20 |
+| `driver_ev` | Rentbutik EV drivers | ST10 |
+| `driver_golf` | Sea Breeze golf drivers | ST10 |
+| `transfer_host` | A host whose HO07a car check is approved | ST10 and HO06–HO08 |
 
 ## Status names
 
@@ -46,18 +63,7 @@ Still missing from the brief: extend a golf rental and return photos on the Sea 
 | Listing review | `in_review`, `needs_changes`, `live` |
 | Document check | `waiting`, `verified`, `rejected` |
 
-## Admin panel frames (page "Admin panel (newiosadmin)")
-
-- 11 · Admin · EV: ST30 Admin home (CEO view, module chips, Actions switch) · ST31 Users · ST31a User detail · ST31b Block user · ST32 Vehicles · ST32a Vehicle detail · ST33 Trips · ST33a Trip detail · ST34 Map · ST35 Reserves · ST36 Outstanding debt · ST37 Damage reports · ST38 Statistics · ST39 EV settings
-- 12 · Admin · P2P: ST40 P2P home · ST41 Users · ST42 Vehicles · ST42a Vehicle detail · ST43 Trips · ST43a Trip detail · ST43b Cancel trip · ST44 Reviews · ST45 Ops queues · ST46 Notifications · ST47 Marketplace settings
-- 13 · Admin · Golf settings, Transfer and platform: ST27 Golf settings · ST50 Transfer home (car checks, 10 % fee) · ST51 Transfers · ST52 Listing review · ST52a Ask for changes · ST53 Document checks · ST53a Document check detail · ST54 Company accounts · ST54a Company detail · ST55 EV plans · ST56 Support inbox · ST57 Parking warnings and appeals · ST58 News · ST58a New message · ST59 Staff and roles · ST59a Add staff member (creates the 8-digit code)
-- 14 · Admin · Investor: ST60 Investor overview · ST60b Admin in Investor view · ST61 Investor · Golf
-
-Not drafted yet from the brief's list: Promo codes, Security groups, Car data, Localization, Filters, Golf tariffs and zones as separate pages. They appear only as rows in the settings screens.
-
-Write actions follow the old panel's rule: an "Actions" switch that is off by default, turns itself off after 15 min, and a confirm alert for every write.
-
-## Design system for the admin panel
+## Design system
 
 - Tokens, text styles, effect styles and components: Figma page "Design system", collection "Rentbutik · Tokens" (Light and Dark).
 - Swift code: `Rentbutik/Design/Theme.swift` in Emin-dev/figma (motion and colour tokens). No shared Swift package exists yet.
@@ -74,4 +80,3 @@ Write actions follow the old panel's rule: an "Actions" switch that is off by de
 2. Role codes are proposals. The backend confirms the `/admin/me` shape.
 3. Host & Staff screens are light and English only. AZ, RU and Dark copies are not made yet.
 4. Driver earnings (ST13) and Daily summary (ST26) need backend endpoints.
-5. Admin panel layout: web (desktop) or phone. The drafts are phone size.
